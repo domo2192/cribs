@@ -11,6 +11,8 @@ class HouseTest < Minitest::Test
   def test_it_exists_and_has_attributes
     assert_instance_of House, @house
     assert_equal 400000, @house.price
-    assert_equal "123 sugar lane", @house.address 
+    assert_equal "123 sugar lane", @house.address
   end
+
+  
 end

@@ -10,5 +10,25 @@ class House
 
   def add_room(room)
     @rooms << room
-  end 
+  end
+
+  def above_market_average?
+    @price > 500_000
+  end
+
+  def rooms_from_category(category)
+    @rooms.find_all do |room|
+      room.category == category
+    end
+  end
+
+  def area
+    @rooms.sum do |room|
+      room.area
+    end
+  end
+
+  def details
+    dets = {"price" => @price , "address" => @address}
+  end
 end

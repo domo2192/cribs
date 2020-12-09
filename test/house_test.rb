@@ -14,5 +14,7 @@ class HouseTest < Minitest::Test
     assert_equal "123 sugar lane", @house.address
   end
 
-  
+  def test_rooms_is_empty_array
+    assert_equal [], @house.rooms
+  end
 end

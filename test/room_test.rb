@@ -33,6 +33,6 @@ class RoomTest < Minitest::Test
     room2 = Room.new(:living_room, 15, '12')
     room1.paint
     assert_equal true, room1.is_painted?
-    assert_equal false, room2.is_painted? 
+    assert_equal false, room2.is_painted?
   end
 end

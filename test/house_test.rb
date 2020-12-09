@@ -14,7 +14,7 @@ class HouseTest < Minitest::Test
 
   def test_it_exists_and_has_attributes
     assert_instance_of House, @house
-    assert_equal 400000, @house.price
+    assert_equal 400_000, @house.price
     assert_equal "123 sugar lane", @house.address
   end
 
@@ -49,9 +49,9 @@ class HouseTest < Minitest::Test
   end
 
   def test_details_method_is_a_hash
-    expected = {"price" => 400_000,
-                "address" => "123 sugar lane"}
-  assert_equal expected, @house.details
+    expected = { "price" => 400_000,
+                 "address" => "123 sugar lane" }
+    assert_equal expected, @house.details
   end
 
   def test_price_per_square_foot
@@ -78,6 +78,6 @@ class HouseTest < Minitest::Test
     expected = {:bedroom => [@room_1, @room_2],
                 :living_room => [@room_3],
                 :basement => [@room_4]}
-    assert_equal expected, @house.rooms_by_category 
+    assert_equal expected, @house.rooms_by_category
   end
 end

@@ -51,6 +51,33 @@ class HouseTest < Minitest::Test
   def test_details_method_is_a_hash
     expected = {"price" => 400_000,
                 "address" => "123 sugar lane"}
-  assert_equal expected, @house.details 
+  assert_equal expected, @house.details
+  end
+
+  def test_price_per_square_foot
+    @house.add_room(@room_4)
+    @house.add_room(@room_1)
+    @house.add_room(@room_3)
+    @house.add_room(@room_2)
+    assert_equal 210.53, @house.price_per_square_foot
+  end
+
+  def test_sorted_by_area
+    @house.add_room(@room_4)
+    @house.add_room(@room_1)
+    @house.add_room(@room_3)
+    @house.add_room(@room_2)
+    assert_equal [@room_4, @room_3, @room_2, @room_1], @house.rooms_sorted_by_area
+  end
+
+  def test_rooms_by_category
+    @house.add_room(@room_4)
+    @house.add_room(@room_1)
+    @house.add_room(@room_3)
+    @house.add_room(@room_2)
+    expected = {:bedroom => [@room_1, @room_2],
+                :living_room => [@room_3],
+                :basement => [@room_4]}
+    assert_equal expected, @house.rooms_by_category 
   end
 end

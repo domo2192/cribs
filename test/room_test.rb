@@ -25,6 +25,14 @@ class RoomTest < Minitest::Test
   def test_room_is_painted?
     room1 = Room.new(:bedroom, 10, '13')
     room2 = Room.new(:living_room, 15, '12')
-    assert_equal false, room1.is_painted? 
+    assert_equal false, room1.is_painted?
+  end
+
+  def test_we_can_paint_the_room
+    room1 = Room.new(:bedroom, 10, '13')
+    room2 = Room.new(:living_room, 15, '12')
+    room1.paint
+    assert_equal true, room1.is_painted?
+    assert_equal false, room2.is_painted? 
   end
 end
